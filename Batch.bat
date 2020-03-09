@@ -1,0 +1,1 @@
+pyuic5 -x TestApplication.ui -o TestApplication.py
