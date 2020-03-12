@@ -261,17 +261,17 @@ class Ui_OBJ(object):
 
     def clickMethod(self):
          byte1 = int(self.lineEdit_byte1.text(), 16)
-         byte2 = int(self.lineEdit_byte2.text(), 16)
-         byte3 = int(self.lineEdit_byte3.text(), 16)
-         byte4 = int(self.lineEdit_byte4.text(), 16)
-         byte5 = int(self.lineEdit_byte5.text(), 16)
-         byte6 = int(self.lineEdit_byte6.text(), 16)
-         byte7 = int(self.lineEdit_byte7.text(), 16)
-         byte8 = int(self.lineEdit_byte8.text(), 16)
-
-         print('Clicked Pyqt button', x)
+         byte2 = int(self.lineEdit_byte_2.text(), 16)
+         byte3 = int(self.lineEdit_byte_3.text(), 16)
+         byte4 = int(self.lineEdit_byte_4.text(), 16)
+         byte5 = int(self.lineEdit_byte_5.text(), 16)
+         byte6 = int(self.lineEdit_byte_6.text(), 16)
+         byte7 = int(self.lineEdit_byte_7.text(), 16)
+         byte8 = int(self.lineEdit_byte_8.text(), 16)
+         self.ID = int(self.lineEdit_byte_ID.text(), 16)
+       
          bus = can.interface.Bus(channel='can0', bustype='socketcan_native')
-         msg = can.Message(arbitration_id=0x7de,data=[byte1, byte2, byte3, byte4, byte5, byte6, byte7, byte8],extended_id=False)
+         msg = can.Message(arbitration_id=self.ID,data=[byte1,byte2,byte3,byte4,byte5,byte6,byte7,byte8],extended_id=False)
          bus.send(msg)
 
 if __name__ == "__main__":
