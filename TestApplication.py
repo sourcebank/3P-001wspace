@@ -260,10 +260,18 @@ class Ui_OBJ(object):
         self.label.setText(_translate("OBJ", "STATUS:  Node disconnected from CAN bus"))
 
     def clickMethod(self):
-         x = int(self.lineEdit_byte_ID.text(), 16)
+         byte1 = int(self.lineEdit_byte1.text(), 16)
+         byte2 = int(self.lineEdit_byte2.text(), 16)
+         byte3 = int(self.lineEdit_byte3.text(), 16)
+         byte4 = int(self.lineEdit_byte4.text(), 16)
+         byte5 = int(self.lineEdit_byte5.text(), 16)
+         byte6 = int(self.lineEdit_byte6.text(), 16)
+         byte7 = int(self.lineEdit_byte7.text(), 16)
+         byte8 = int(self.lineEdit_byte8.text(), 16)
+
          print('Clicked Pyqt button', x)
          bus = can.interface.Bus(channel='can0', bustype='socketcan_native')
-         msg = can.Message(arbitration_id=0x7de,data=[0, 25, 0, 1, 3, 1, 4, 1],extended_id=False)
+         msg = can.Message(arbitration_id=0x7de,data=[byte1, byte2, byte3, byte4, byte5, byte6, byte7, byte8],extended_id=False)
          bus.send(msg)
 
 if __name__ == "__main__":
